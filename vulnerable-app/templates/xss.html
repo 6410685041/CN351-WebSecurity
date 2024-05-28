@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XSS</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form method="post" action="{{ url_for('xss') }}">
+        Username: <input type="text" name="txt"><br>
+        <input type="submit" value="XSS">
+    </form>
+    <a href="{{ url_for('index') }}">Back to Home</a>
+</body>
+</html>

@@ -7,8 +7,14 @@
     <h1>Welcome to the Home Page</h1>
     <nav>
         <a href="{{ url_for('login') }}">Login</a> |
-        <a href="{{ url_for('contact') }}">Contact</a> |
-        <a href="{{ url_for('register') }}">Register</a>
+        <a href="{{ url_for('register') }}">Register</a> |
+        <a href="{{ url_for('xss') }}">XSS</a>
     </nav>
+    
+    <form method="get" action="{{ url_for('index') }}">
+        Text: <input type="text" name="txt"><br>
+        <input type="submit" value="Add">
+    </form>
+
 </body>
 </html>
