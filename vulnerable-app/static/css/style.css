@@ -1,0 +1,101 @@
+body {
+  /* background-color: #ededed; */
+  margin: 0px;
+}
+
+/* container */
+.content {
+  font-family: Arial, sans-serif;
+  display: grid;
+  grid-template-areas:
+      "nav main";
+  grid-template-columns: 250px 1fr;
+}
+
+aside {
+  grid-area: nav;
+  background-color: white;
+  padding: 20px;
+}
+
+main {
+  grid-area: main;
+  padding: 5%;
+  background-color: #ededed;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 4px;
+  opacity: 0.6;
+}
+
+nav ul li a:hover {
+  opacity: 1;
+}
+
+/* for content */
+.lesson-highlight {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+section {
+  margin-bottom: 10px;
+}
+
+/* in article */
+article div h2 {
+  margin: 10px 0px;
+}
+
+article div p {
+  margin-top: 5px;
+}
+
+article div{
+  margin-bottom: 20px;
+}
+
+article a {
+  background-color: #3B3939;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+article a:hover {
+  background-color: purple;
+}
+
+small {
+  color: red;
+}
+
+/* for nav bar icon */
+.icon-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 10px;
+}
+
+.icon-link .icon {
+  margin-right: 5px;
+}

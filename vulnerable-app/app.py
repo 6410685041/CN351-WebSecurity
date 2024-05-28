@@ -22,6 +22,11 @@ def index():
         return "Check the logs for the input!"
     return render_template('index.html')
 
+@app.route('/member', methods=['GET'])
+def member():
+    return render_template('member.html')
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -34,31 +39,12 @@ def login():
         conn.close()
 
         if user:
-            return f"Login successful! {username}"
+            response = f"Login successful! {username}"
+            return render_template('login.html', response=response)
         else:
-            return "Invalid username or password"
+            response = "Invalid username or password"
+            return render_template('login.html', response=response)
     return render_template('login.html')
-
-
-# @app.route('/contact', methods=['GET', 'POST'])
-# def contact():
-#     if request.method == 'POST':
-#         to = request.form['to']
-#         subject = request.form['subject']
-#         message = request.form['message']
-
-#         msg = MIMEText(message)
-#         msg['Subject'] = subject
-#         msg['From'] = 'user@example.com'
-#         msg['To'] = to
-
-#         try:
-#             with smtplib.SMTP('localhost', 1025) as server:
-#                 server.sendmail('user@example.com', [to], msg.as_string())
-#             return "Message sent!"
-#         except Exception as e:
-#             return f"Failed to send message: {e}"
-#     return render_template('contact.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -71,12 +57,14 @@ def register():
         existing_user = conn.execute(query, (username,)).fetchone()
         if existing_user:
             conn.close()
-            return "Username already taken"
+            response = "Username already taken"
+            return render_template('register.html', response=response)
         else:
             conn.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
             conn.commit()
             conn.close()
-            return "User registered successfully"
+            response = "User registered successfully"
+            return render_template('register.html', response=response)
     return render_template('register.html')
 
 
@@ -84,37 +72,9 @@ def register():
 def xss():
     text = request.args.get('txt')
     if text:
-        response = f"Login successful! {text}"
-        return render_template_string(f"""
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>XSS</title>
-        </head>
-        <body>
-            <h1>{response}</h1>
-            <form method="get" action="/xss">
-                Text: <input type="text" name="txt"><br>
-                <input type="submit" value="Add">
-            </form>
-        </body>
-        </html>
-        """)
-    return render_template_string("""
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>XSS</title>
-    </head>
-    <body>
-        <h1>Welcome to the xss Page</h1>
-        <form method="get" action="/xss">
-            Text: <input type="text" name="txt"><br>
-            <input type="submit" value="Add">
-        </form>
-    </body>
-    </html>
-    """)
+        response = f"Comment: {text}"
+        return render_template('xss.html', response=response)
+    return render_template('xss.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Register</title>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block title %} Register {% endblock %}
+
+{% block main %}
+<section class="lesson-highlight">
     <h1>Register</h1>
+    {% if response %}
+        <h3>{{response}}</h3>
+    {% else %}
     <form method="post" action="{{ url_for('register') }}">
         Username: <input type="text" name="username"><br>
         Password: <input type="password" name="password"><br>
         <input type="submit" value="Register">
     </form>
-    <a href="{{ url_for('index') }}">Back to Home</a>
-</body>
-</html>
+    {% endif %}
+</section>
+{% endblock %}

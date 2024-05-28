@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %} Default title {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+    <div class="content">
+        <aside>
+            <h1>CN351 Project</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{ url_for('index') }}" class="icon-link">
+                            <img src="https://assets-global.website-files.com/5ec03c2c67cf4824e3d00674/5ec06fd41b451117a43bf866_Home.svg" width="22" alt="" class="icon">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('member') }}" class="icon-link">
+                            <img src="https://assets-global.website-files.com/5ec03c2c67cf4824e3d00674/5ec16d200962178631a23d61_Document.svg" width="22" alt="" class="icon">
+                            Members
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+    </div>
+</body>
+</html>
