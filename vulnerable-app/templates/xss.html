@@ -3,15 +3,19 @@
 {% block title %} XSS {% endblock %}
 
 {% block main %}
-<section class="lesson-highlight">
-    <h1>Welcome to the xss Page</h1>
+<section class="container">
+    <h1>XSS</h1>
     {% if response %}
-        <h3>{{response}}</h3>
+        <span style="color: purple;">{{ response | safe }}</span>
     {% endif %}
-    <form method="get" action="/xss">
-        Text: <input type="text" name="txt">
-        <input type="submit" value="Add">
-    </form>
+    <div class="form-container">
+        <form method="get" action="/xss">
+            Text: <input type="text" name="txt">
+            <input type="submit" value="Add">
+        </form>
+    </div>
+    <br>
+    <a class="back-button" href="{{ url_for('index') }}">Back</a>
 </section>
 
 

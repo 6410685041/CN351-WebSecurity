@@ -3,34 +3,45 @@
 {% block title %} Home {% endblock %}
 
 {% block main %}
-<section class="lesson-highlight">
+<section class="container">
     <article>
         <div>
-            <h2>XSS</h2>
-            <p>Cross-site scripting (XSS) is a web security flaw that lets attackers compromise user interactions with a vulnerable application. It allows attackers to bypass the same origin policy, which separates different websites. XSS can enable attackers to impersonate users, perform actions on their behalf, access their data, and potentially gain full control over the application’s functionality and data if those users have privileged access.</p>
-        </div>
-        <a href="{{ url_for('xss') }}">View</a>
-    </article>
-</section>
-
-<section class="lesson-highlight">
-    <article>
-        <div>
-            <h2>Username Enumeration</h2>
-            <p>Username enumeration is a security vulnerability where attackers identify valid usernames on a server or web application, often facilitated by different server responses for existing and non-existing users. This process can also occur through exploitable flaws like SQL Injection that reveal usernames. Knowing usernames is crucial since it's typically half of the login credentials needed, enabling attackers to subsequently employ Brute Force to guess passwords.</p>
+            <h2>4.3 Username Enumeration</h2>
+            <p>&emsp;Username enumeration is a security vulnerability where attackers identify valid usernames on a server or web application,
+                 often facilitated by different server responses for existing and non-existing users.
+                 Enabling attackers to use brute-force techniques to either guess or confirm valid users in a system.</p>
         </div>
         <a href="{{ url_for('register') }}">View</a>
     </article>
 </section>
 
-<section class="lesson-highlight">
+<section class="container">
     <article>
         <div>
-            <h2>SQL Injection</h2>
-            <p>SQL injection (SQLi) is a web security vulnerability that allows an attacker to interfere with the queries that an application makes to its database. This can allow an attacker to view data that they are not normally able to retrieve. This might include data that belongs to other users, or any other data that the application can access. In many cases, an attacker can modify or delete this data, causing persistent changes to the application's content or behavior.</p>
+            <h2>7.2 SQL Injection</h2>
+            <p>&emsp;SQL injection (SQLi) is a web security vulnerability that lets an attacker make queries with the database
+                 by injecting an SQL command via the input from users to the application.
+                 Which allows an attacker to extract sensitive information, modify database data,
+                 execute administration operations on the database,
+                 and in some cases, issue commands to the operating system.</p>
         </div>
         <a href="{{ url_for('login') }}">View</a>
     </article>
 </section>
+
+<section class="container">
+    <article>
+        <div>
+            <h2>7.3 XSS and response injection</h2>
+            <p>&emsp;Cross-site scripting (XSS) is a web security vulnerability that allows attackers to inject client-side scripts
+                 into web pages viewed by other users. It allows attackers to bypass the same origin policy,
+                 access any cookies, session tokens, or other sensitive information retained by the browser and used with that site.
+                 XSS can enable attackers to impersonate users, perform actions on their behalf, access their data,
+                 and potentially gain full control over the application’s functionality and data if those users have privileged access.</p>
+        </div>
+        <a href="{{ url_for('xss') }}">View</a>
+    </article>
+</section>
+
 
 {% endblock %}

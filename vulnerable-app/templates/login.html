@@ -3,15 +3,21 @@
 {% block title %} Login {% endblock %}
 
 {% block main %}
-<section class="lesson-highlight">
+<section class="container">
     <h1>Login</h1>
-    <form method="post" action="{{ url_for('login') }}">
-        Username: <input type="text" name="username"><br>
-        Password: <input type="password" name="password"><br>
-        <input type="submit" value="Login">
-    </form>
+    <div class="form-container">
+        <form method="post" action="{{ url_for('login') }}">
+            Username: <input type="text" name="username"><br>
+            Password: <input type="password" name="password"><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
     {% if response %}
-        <small>{{response}}</small>
+        <div>
+            <small>{{response}}</small>
+        </div>
     {% endif %}
+    <br>
+    <a class="back-button" href="{{ url_for('index') }}">Back</a>
 </section>
 {% endblock %}

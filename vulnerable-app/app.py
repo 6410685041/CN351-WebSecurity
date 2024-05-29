@@ -1,6 +1,5 @@
 from flask import Flask, request, render_template, render_template_string
 import sqlite3
-import smtplib
 import logging
 from email.mime.text import MIMEText
 
@@ -12,6 +11,25 @@ def get_db_connection():
     conn = sqlite3.connect('test.db')
     conn.row_factory = sqlite3.Row
     return conn
+
+def init_db():
+    conn = get_db_connection()
+    try:
+        conn = sqlite3.connect('test.db')
+        c = conn.cursor()
+
+        c.execute('CREATE TABLE IF NOT EXISTS users (username TEXT, password TEXT)')
+        c.execute("INSERT INTO users (username, password) VALUES ('user1', 'password1')")
+
+        conn.commit()
+        conn.close()
+
+        print("Database setup complete.")
+
+    except sqlite3.Error as e:
+        print(f"An error occurred: {e}")
+    finally:
+        conn.close()
 
 @app.route('/', methods=['GET'])
 def index():
@@ -72,9 +90,10 @@ def register():
 def xss():
     text = request.args.get('txt')
     if text:
-        response = f"Comment: {text}"
+        response = text
         return render_template('xss.html', response=response)
     return render_template('xss.html')
 
 if __name__ == '__main__':
+    init_db()
     app.run(debug=True)
