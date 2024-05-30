@@ -5,7 +5,7 @@ This project demonstrates the simulation of three common web security attack met
 ## Installation
 To run this project locally, follow these steps
 <ol>
-  <li>git clone https://github.com/yourusername/CN351-WebSecurity.git</li>
+  <li>git clone [https://github.com/6410685041/CN351-WebSecurity.git](https://github.com/6410685041/CN351-WebSecurity)</li>
   <li>cd CN351-WebSecurity</li>
   <li>pip install -r requirements.txt</li>
   <li>flask run</li>
