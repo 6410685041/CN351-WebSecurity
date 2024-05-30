@@ -14,9 +14,10 @@ To run this project locally, follow these steps
 ## Usage
 Once the application is running, you can access the different sections to simulate the attacks
 <ul>
-  <li>Username Enumeration: Visit /register </li>
-  <li>SQL Injection: Visit /login</li>
-  <li>Cross-Site Scripting (XSS): Visit /xss</li>
+  <li>Username Enumeration: Visit /register input a username that already taken the respone show Username already taken </li>
+  
+  <li>SQL Injection: Visit /login and input ' or 1=1; -- as the username or password to see the effect of an SQL injection. </li>
+  <li>Cross-Site Scripting (XSS): Visit /xss and input <script>alert(1)</script> to see a basic XSS attack in action.</li>
 </ul>
 
 
