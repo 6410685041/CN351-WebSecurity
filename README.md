@@ -6,7 +6,7 @@ This project demonstrates the simulation of three common web security attack met
 To run this project locally, follow these steps
 <ol>
   <li>git clone https://github.com/6410685041/CN351-WebSecurity </li>
-  <li>cd CN351-WebSecurity</li>
+  <li>cd CN351-WebSecurity/vulnerable-app</li>
   <li>pip install -r requirements.txt</li>
   <li>flask run</li>
 </ol>
@@ -17,7 +17,7 @@ Once the application is running, you can access the different sections to simula
   <li>Username Enumeration: Visit /register input a username that already taken the respone show Username already taken </li>
   
   <li>SQL Injection: Visit /login and input ' or 1=1; -- as the username or password to see the effect of an SQL injection. </li>
-  <li>Cross-Site Scripting (XSS): Visit /xss and input <script>alert(1)</script> to see a basic XSS attack in action.</li>
+  <li>Cross-Site Scripting (XSS): Visit /xss and input <script>alert('xss')</script> to see a basic XSS attack in action.</li>
 </ul>
 
 
